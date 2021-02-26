@@ -24,19 +24,19 @@ namespace HashUnitTest
         {
             string output = MD5hash.Algorithm.HashText(input);
             string output0Expected = GetMD5Hash(input);
-            Assert.AreEqual(output0Expected, output, true, "Некорректный хэш для строки {0}", input);
+            Assert.AreEqual(output0Expected, output, true, "РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ С…СЌС€ РґР»СЏ СЃС‚СЂРѕРєРё {0}", input);
         }
         private string GetMD5Hash(string input)
         {
             MD5 md5Hasher = MD5.Create();
-            // Преобразуем входную строку в массив байт и вычисляем хэш
+            // РџСЂРµРѕР±СЂР°Р·СѓРµРј РІС…РѕРґРЅСѓСЋ СЃС‚СЂРѕРєСѓ РІ РјР°СЃСЃРёРІ Р±Р°Р№С‚ Рё РІС‹С‡РёСЃР»СЏРµРј С…СЌС€
             byte[] data = md5Hasher.ComputeHash(Encoding.Default.GetBytes(input));
-            // Создаем новый Stringbuilder (Изменяемую строку) для набора байт
+            // РЎРѕР·РґР°РµРј РЅРѕРІС‹Р№ Stringbuilder (РР·РјРµРЅСЏРµРјСѓСЋ СЃС‚СЂРѕРєСѓ) РґР»СЏ РЅР°Р±РѕСЂР° Р±Р°Р№С‚
             StringBuilder sBuilder = new StringBuilder();
-            // Преобразуем каждый байт хэша в шестнадцатиричную строку
+            // РџСЂРµРѕР±СЂР°Р·СѓРµРј РєР°Р¶РґС‹Р№ Р±Р°Р№С‚ С…СЌС€Р° РІ С€РµСЃС‚РЅР°РґС†Р°С‚РёСЂРёС‡РЅСѓСЋ СЃС‚СЂРѕРєСѓ
             for (int i = 0; i < data.Length; i++)
             {
-                // Указывает, что нужно преобразовать элемент в шестнадцатиричную строку длиной в два символа
+                // РЈРєР°Р·С‹РІР°РµС‚, С‡С‚Рѕ РЅСѓР¶РЅРѕ РїСЂРµРѕР±СЂР°Р·РѕРІР°С‚СЊ СЌР»РµРјРµРЅС‚ РІ С€РµСЃС‚РЅР°РґС†Р°С‚РёСЂРёС‡РЅСѓСЋ СЃС‚СЂРѕРєСѓ РґР»РёРЅРѕР№ РІ РґРІР° СЃРёРјРІРѕР»Р°
                 sBuilder.Append(data[i].ToString("x2"));
             }
             return (sBuilder.ToString());
