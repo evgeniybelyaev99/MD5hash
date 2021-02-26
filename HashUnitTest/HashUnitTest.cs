@@ -33,10 +33,10 @@ namespace HashUnitTest
             byte[] data = md5Hasher.ComputeHash(Encoding.Default.GetBytes(input));
             // Создаем новый Stringbuilder (Изменяемую строку) для набора байт
             StringBuilder sBuilder = new StringBuilder();
-            // Преобразуем каждый байт хэша в шестнадцатеричную строку
+            // Преобразуем каждый байт хэша в шестнадцатиричную строку
             for (int i = 0; i < data.Length; i++)
             {
-                //указывает, что нужно преобразовать элемент в шестнадцатиричную строку длиной в два символа
+                // Указывает, что нужно преобразовать элемент в шестнадцатиричную строку длиной в два символа
                 sBuilder.Append(data[i].ToString("x2"));
             }
             return (sBuilder.ToString());
